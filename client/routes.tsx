@@ -11,7 +11,7 @@ export default createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<App />}>
-        <Route index element={<AllItems />} />
+        {/* <Route index element={<AllItems />} />
         <Route path="materials" element={<Materials />}>
           <Route index element={<Food />} />
           <Route path="food" element={<Food />} />
@@ -20,7 +20,7 @@ export default createBrowserRouter(
         <Route path="armoury" element={<Armoury />}>
           <Route path="bows" element={<Bows />} />
           <Route path="shields" element={<Shields />} />
-        </Route>
+        </Route> */}
       </Route>
     </>
   )

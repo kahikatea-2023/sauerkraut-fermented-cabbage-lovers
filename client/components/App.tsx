@@ -30,8 +30,8 @@ const App = () => {
         </p>
       )}
       <button onClick={() => setCount(count + 1)}>Click</button>
-      <Outlet />
-      <Ship />
+      {/* <Outlet />
+      <Ships /> */}
     </>
   )
 }
