@@ -1,9 +1,28 @@
 import request from 'superagent'
-import { Ship } from './models/ship'
+import shipImages from './data/ships'
+import { Ship, ShipData } from './models/ship'
+import { log } from 'console'
 
-const serverUrl = 'https://swapi.dev/api/'
+export async function fetchStarships() {
+  const data = await request.get('https://swapi.dev/api/starships')
+  // console.log(data);
 
-export async function getSpaceShips() {
-  const res = await request.get(`${serverUrl}/starships`)
-  return res.body as Ship []
+  const starships = data.body.results
+  // console.log(starships)
+
+  return starships as ShipData[]
+}
+
+export async function getStarships() {
+  const shipArr = await fetchStarships()
+  const updatedArr = shipArr.map(ship => {
+    return {...ship, ...shipImages.find(shipImg => shipImg.name === ship.name)}
+  })
+  
+  return updatedArr as Ship[]
+}
+
+export async function getShipById(id:number) {
+  const shipArr = await getStarships()
+  return shipArr[id]
 }
