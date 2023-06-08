@@ -2,6 +2,31 @@ import { useState, useEffect } from 'react'
 import { getGreeting } from '../apiClient'
 import { Outlet } from 'react-router-dom'
 
+const initialShipArr = [
+  {
+    name: '',
+    model: '',
+    manufacturer: '',
+    cost_in_credits: '',
+    length: '',
+    max_atmosphering_speed: '',
+    crew: '',
+    passengers: '',
+    cargo_capacity: '',
+    consumables: '',
+    hyperdrive_rating: '',
+    MGLT: '',
+    starship_class: '',
+    pilots: [],
+    films: [],
+    created: '',
+    edited: '',
+    url: '',
+    sold: false,
+    imgSrc: '',
+  },
+]
+
 const App = () => {
   const [greeting, setGreeting] = useState('')
   const [count, setCount] = useState(0)
