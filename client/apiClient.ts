@@ -1,5 +1,9 @@
 import request from 'superagent'
+import { Ship } from './models/ship'
 
-export function getGreeting(): Promise<string> {
-  return request.get('/api/v1/greeting').then((res) => res.body.greeting)
+const serverUrl = 'https://swapi.dev/api/'
+
+export async function getSpaceShips() {
+  const res = await request.get(`${serverUrl}/starships`)
+  return res.body as Ship []
 }
