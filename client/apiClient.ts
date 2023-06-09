@@ -15,14 +15,18 @@ export async function fetchStarships() {
 
 export async function getStarships() {
   const shipArr = await fetchStarships()
-  const updatedArr = shipArr.map(ship => {
-    return {...ship, ...shipImages.find(shipImg => shipImg.name === ship.name)}
+  const updatedArr = shipArr.map((ship, index) => {
+    const id = index
+    return {
+      ...ship,
+      ...shipImages.find((shipImg) => shipImg.name === ship.name), id
+    }
   })
-  
+
   return updatedArr as Ship[]
 }
 
-export async function getShipById(id:number) {
+export async function getShipById(id: number) {
   const shipArr = await getStarships()
   return shipArr[id]
 }
