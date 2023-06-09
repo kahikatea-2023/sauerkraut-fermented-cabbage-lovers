@@ -38,7 +38,7 @@ function ShipDetails() {
 
   function buyShip(ship: Ship) {
     alert(`Congratulation on your purchase of the ${ship.name}`)
-    setShip({... ship, sold: true})
+    setShip({ ...ship, sold: true })
   }
 
   useEffect(() => {
@@ -53,20 +53,31 @@ function ShipDetails() {
 
   return (
     <>
-      <div>
-        <h2>{ship.name}</h2>
-        <img src={`../${ship.imgSrc}`} alt="imglol" />
-        <p>Model: {ship.model}</p>
-        <p>Manudacturer: {ship.manufacturer}</p>
-        <p>Price: $ {ship.cost_in_credits}</p>
-        <p>Length: {ship.length}m</p>
-        <p>Max Speed: {ship.max_atmosphering_speed}</p>
-        <p>Crew Capacity: {ship.crew}</p>
-        <p>Passenger Capacity: {ship.passengers}</p>
-        <p>Available: {ship.sold ? 'Not Available' : 'Available for purchase'}</p>
+      <div className="single-ship">
+        <div className="single-ship-img">
+          <img src={`../${ship.imgSrc}`} alt="imglol" />
+          <div className="ship-info">
+            <ul>
+              <li>Name: {ship.name}</li>
+              <li>Price: {ship.cost_in_credits}</li>
+            </ul>
+          </div>
+        </div>
+        <div className="single-ship-details">
+          
+          <p>Model: {ship.model}</p>
+          <p>Manufacturer: {ship.manufacturer}</p>
+          <p>Price: $ {ship.cost_in_credits}</p>
+          <p>Length: {ship.length}m</p>
+          <p>Max Speed: {ship.max_atmosphering_speed}</p>
+          <p>Crew Capacity: {ship.crew}</p>
+          <p>Passenger Capacity: {ship.passengers}</p>
+          <p>
+            Available: {ship.sold ? 'Not Available' : 'Available for purchase'}
+          </p>
+            <Button handleClick={handleClick} ship={ship} />
+        </div>
       </div>
-      <Button handleClick={handleClick} ship = {ship} />
-      
     </>
   )
 }

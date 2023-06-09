@@ -43,19 +43,27 @@ function Hanger() {
 
   return (
     <>
-      <div>
-        {spaceships.map((spaceShip) => (
-          <ul key={spaceShip.name}>
-            <li>Spaceship: {spaceShip.name}</li>
-            <a href={spaceShip.imgSrc}>
-              <img src={spaceShip.imgSrc} alt="img"></img>
-            </a>
-            <li>Price: ${spaceShip.cost_in_credits}</li>
-            <Link to={`/shipdetails/${spaceShip.id}`}>
-              <button>VIEW SHIP</button>
-            </Link>
-          </ul>
-        ))}
+      <div className="content">
+        <div className='ships-list'>
+          {spaceships.map((spaceShip) => (
+          <>
+            <div className='ship'>
+              <ul key={spaceShip.name}>
+                <a href={spaceShip.imgSrc}>
+                  <img src={spaceShip.imgSrc} alt="img"></img>
+                </a>
+                <div className="ship-info">
+                  <li>Spaceship: {spaceShip.name}</li>
+                  <li>Price: ${spaceShip.cost_in_credits}</li>
+                  <Link to={`/shipdetails/${spaceShip.id}`}>
+                    <button>VIEW SHIP</button>
+                  </Link>
+                </div>
+              </ul>
+            </div>
+            </>
+          ))}
+        </div>
       </div>
     </>
   )

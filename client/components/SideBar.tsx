@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 function SideBar() {
   return (
     <>
-      <div>
-        <p>Ship By Category</p>
+      <div className='sidebar'>
+        <h2>Ship By Category</h2>
         <ul>
           <li>
             <Link to={'/'}>SHIP CLASS</Link>

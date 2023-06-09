@@ -19,7 +19,7 @@ body {
   font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
   color: #fff;
   background-image: url('../images/milky-way-2695569_1920.jpg');
-  background-size: cover;
+  background-size: 100vw;
   margin: 0;
 }
 
@@ -123,17 +123,22 @@ header {
 .single-ship {
   display: flex;
   padding: 1%;
+  background-color: rgba(41, 59, 75, 0.8);
+  font-size: 1.;
 }
 
 .ship {
   width: 50%;
   padding: 0 2.5%;
   margin: 30px 0 0; 
-    justify-content: center;
+  
+    justify-content: flex-end;
     display: flex;
     flex-direction: column;
+    
 }
 .ship img {
+  padding-block: auto;
   position: relative;
   z-index: -1;
 }
@@ -180,7 +185,7 @@ img {
   width: 100%;
 }
 
-button {
+button{
   text-transform: uppercase;
   font-size: 14px;
   color: #000;
