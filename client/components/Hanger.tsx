@@ -57,17 +57,12 @@ function Hanger() {
   console.log(spaceships)
 
   useEffect(() => {
-    console.log('hello')
-
     getStarships()
       .then((fetchedSpaceshipData) => {
-        console.log(fetchedSpaceshipData)
         setSpaceships(fetchedSpaceshipData)
       })
       .catch((err) => console.error(err))
   }, [])
-  // const spaceShipsData = await getStarships()
-  // console.log(spaceShipsData)
 
   return (
     <>
@@ -79,7 +74,7 @@ function Hanger() {
               <img src={spaceShip.imgSrc} alt="img"></img>
             </a>
             <li>Price: ${spaceShip.cost_in_credits}</li>
-            <Link to={`/ships/</ul>${spaceShip.name}`}>
+            <Link to={`/ships/${spaceShip.id}`}>
               <button>VIEW SHIP</button>
             </Link>
           </ul>

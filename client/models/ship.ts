@@ -26,6 +26,7 @@ export interface ShipData {
 export interface Ship extends ShipData {
   sold: boolean
   imgSrc: string
+  id: number
 }
 
 export interface ShipImage {

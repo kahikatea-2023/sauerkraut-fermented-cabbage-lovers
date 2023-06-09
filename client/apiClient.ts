@@ -10,6 +10,7 @@ export async function fetchStarships() {
   const starships = data.body.results
   // console.log(starships)
 
+  
   return starships as ShipData[]
 }
 

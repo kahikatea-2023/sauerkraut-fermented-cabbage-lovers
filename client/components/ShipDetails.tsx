@@ -1,8 +1,11 @@
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getSpaceShips } from '../apiClient'
+import { getStarships } from '../apiClient'
+import { Ship } from '../models/ship'
 
-const ship = [
+const initShip = [
   {
+    id: 1,
     name: 'Space Ship',
     model: 'HardCoded data',
     manufacturer: 'f',
@@ -25,24 +28,23 @@ const ship = [
       'https://www.denofgeek.com/wp-content/uploads/2019/12/x-wing.jpg?w=1024',
   },
 ]
-function Ships() {
-  const { shipId } = useParams()
-  if (shipId === undefined) {
-    return <p>not able to load the Spaceship page.</p>
-  }
-
-  // const selectedShip = getShipById()
+function ShipDetails() {
+  const { shipID } = useParams()
+  
+  useEffect (() => {
+    const foundShip = initShip.find((ship) => ship.id.to)
+  })
 
   return (
     <div>
-      <h2>{ship.name}</h2>
-      <p>{selectedShip.model}</p>
-      <p>{selectedShip.manufacturer}</p>
-      <p>{selectedShip.cost_in_credits}</p>
-      <p>{selectedShip.length}</p>
-      <p>{selectedShip.max_atmosphering_speed}</p>
-      <p>{selectedShip.crew}</p>
-      <p>{selectedShip.passengers}</p>
+      <h2>{}</h2>
+      <p>{ship.model}</p>
+      <p>{ship.manufacturer}</p>
+      <p>{ship.cost_in_credits}</p>
+      <p>{ship.length}</p>
+      <p>{ship.max_atmosphering_speed}</p>
+      <p>{ship.crew}</p>
+      <p>{ship.passengers}</p>
     </div>
   )
 }
