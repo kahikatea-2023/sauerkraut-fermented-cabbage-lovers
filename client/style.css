@@ -1,0 +1,194 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
+  color: #fff;
+  background-image: url('../images/milky-way-2695569_1920.jpg');
+  background-size: cover;
+  margin: 0;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: normal;
+  color: #F5ED17;
+}
+
+main {
+  display: flex;
+  padding-top: 88px;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 90px;
+  padding: 0 1%;
+}
+
+.logo {
+  width: 145px;
+  height: 88px;
+}
+
+.sidebar {
+  background-color: rgba(41, 59, 75, 0.8);
+  width: 15%;
+  padding: 20px 0;
+}
+
+.sidebar h2 {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #F5ED17;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+.sidebar ul {
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  text-align: center;
+}
+
+.sidebar ul li a {
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background-color: transparent;
+  text-align: center;
+  display: block;
+  padding: 20px;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+.sidebar ul li a:hover {
+  color: #000;
+  background-color: #F5ED17;
+}
+
+.user-info {
+  display: flex;
+}
+
+.user-info p {
+  font-weight: bold;
+  padding: 0 20px;
+}
+
+.user-info p span {
+  color: #F5ED17;
+}
+
+.user-image {
+  width: 42px;
+  height: 56px;
+}
+
+.content {
+  width: 85%;
+}
+
+.ships-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1%;
+}
+
+.single-ship {
+  display: flex;
+  padding: 1%;
+}
+
+.ship {
+  width: 50%;
+  padding: 0 2.5%;
+  margin: 30px 0 0; 
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.ship img {
+  position: relative;
+  z-index: -1;
+}
+
+.ship img.sold::after {
+  content: 'sold';
+  display: flex;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.ship-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.ship-info {
+  text-transform: uppercase;
+}
+
+.ship-info li, .single-ship-details li {
+  font-size: 18px;
+}
+
+
+
+.single-ship-img {
+  width: 50%;
+  padding: 0 2.5%;
+}
+
+.single-ship-details h2 {
+  text-transform: uppercase;
+  font-size: 36px;
+}
+img {
+  width: 100%;
+}
+
+button {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #000;
+  background-color: #F5ED17;
+  height: 37px;
+  border: 0;
+  outline: 0;
+  padding: 0 50px;
+  border-radius: 5px;
+  cursor: pointer;
+}
