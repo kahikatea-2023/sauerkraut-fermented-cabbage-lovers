@@ -1,8 +1,5 @@
-export interface Welcome {
-  statement: string
-}
-
 export interface ShipData {
+  id: number
   name: string
   model: string
   manufacturer: string
@@ -25,5 +22,10 @@ export interface ShipData {
 
 export interface Ship extends ShipData {
   sold: boolean
+  imgSrc: string
+}
+
+export interface ShipImage {
+  name: string
   imgSrc: string
 }
