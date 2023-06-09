@@ -6,55 +6,30 @@ import { useEffect, useState } from 'react'
 const initialShipArr = [
   {
     id: 0,
-    name: 'Space Ship',
-    model: 'HardCoded data',
-    manufacturer: 'f',
-    cost_in_credits: '77777',
-    length: '230m',
-    max_atmosphering_speed: '78',
-    crew: '500',
-    passengers: '1',
-    cargo_capacity: '1',
-    consumables: '1',
-    hyperdrive_rating: '231',
-    starship_class: 'F',
+    name: '',
+    model: '',
+    manufacturer: '',
+    cost_in_credits: '',
+    length: '',
+    max_atmosphering_speed: '',
+    crew: '',
+    passengers: '',
+    cargo_capacity: '',
+    consumables: '',
+    hyperdrive_rating: '',
+    starship_class: '',
     pilots: [],
     films: [],
-    created: '08.06.2023',
+    created: '',
     edited: '',
     url: '',
     sold: false,
-    imgSrc:
-      'https://www.denofgeek.com/wp-content/uploads/2019/12/x-wing.jpg?w=1024',
-  },
-  {
-    id: 1,
-    name: 'Tesla',
-    model: 'HardCoded data',
-    manufacturer: 'f',
-    cost_in_credits: '80000',
-    length: '2m',
-    max_atmosphering_speed: '130',
-    crew: '1',
-    passengers: '1',
-    cargo_capacity: '100',
-    consumables: '1',
-    hyperdrive_rating: '231',
-    MGLT: '321',
-    starship_class: 'F',
-    pilots: [],
-    films: [],
-    created: '08.06.2023',
-    edited: '',
-    url: '',
-    sold: false,
-    imgSrc:
-      'https://cdn.motor1.com/images/mgl/Mk3qg6/s3/2017-tesla-roadster-deck-model-petersen-automotive-museum.jpg',
+    imgSrc: '',
   },
 ]
 //This will contain all space ships on the page.
 function Hanger() {
-  const [spaceships, setSpaceships] = useState(initialShipArr as Ship[])
+  const [spaceships, setSpaceships] = useState<Ship[]>(initialShipArr as any)
 
   console.log(spaceships)
 

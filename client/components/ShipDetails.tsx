@@ -1,36 +1,45 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { getShipById } from '../apiClient'
 import { Ship } from '../models/ship'
+import Button from './Button'
 
 const initShip = [
   {
     id: 1,
-    name: 'Space Ship',
-    model: 'HardCoded data',
-    manufacturer: 'f',
-    cost_in_credits: '77777',
-    length: '230m',
-    max_atmosphering_speed: '78',
-    crew: '500',
-    passengers: '1',
-    cargo_capacity: '1',
-    consumables: '1',
-    hyperdrive_rating: '231',
-    starship_class: 'F',
+    name: '',
+    model: '',
+    manufacturer: '',
+    cost_in_credits: '',
+    length: '',
+    max_atmosphering_speed: '',
+    crew: '',
+    passengers: '',
+    cargo_capacity: '',
+    consumables: '',
+    hyperdrive_rating: '',
+    starship_class: '',
     pilots: [],
     films: [],
-    created: '08.06.2023',
+    created: '',
     edited: '',
     url: '',
     sold: false,
-    imgSrc:
-      'https://www.denofgeek.com/wp-content/uploads/2019/12/x-wing.jpg?w=1024',
+    imgSrc: '',
   },
 ]
 function ShipDetails() {
   const { id } = useParams()
   const [ship, setShip] = useState<Ship>(initShip as any) //hacky fix please research
+
+  function handleClick() {
+    buyShip(ship)
+  }
+
+  function buyShip(ship: Ship) {
+    alert(`Congratulation on your purchase of the ${ship.name}`)
+    setShip({... ship, sold: true})
+  }
 
   useEffect(() => {
     getShipById(Number(id))
@@ -41,22 +50,23 @@ function ShipDetails() {
         console.error(err.message)
       })
   }, [])
-  
-  
+
   return (
     <>
       <div>
         <h2>{ship.name}</h2>
         <img src={`../${ship.imgSrc}`} alt="imglol" />
-        <p>{ship.model}</p>
-    <p>{ship.manufacturer}</p>
-    <p>{ship.cost_in_credits}</p>
-    <p>{ship.length}</p>
-    <p>{ship.max_atmosphering_speed}</p>
-    <p>{ship.crew}</p>
-    <p>{ship.passengers}</p>
+        <p>Model: {ship.model}</p>
+        <p>Manudacturer: {ship.manufacturer}</p>
+        <p>Price: $ {ship.cost_in_credits}</p>
+        <p>Length: {ship.length}m</p>
+        <p>Max Speed: {ship.max_atmosphering_speed}</p>
+        <p>Crew Capacity: {ship.crew}</p>
+        <p>Passenger Capacity: {ship.passengers}</p>
+        <p>Available: {ship.sold ? 'Not Available' : 'Available for purchase'}</p>
       </div>
-      <p>hello</p>
+      <Button handleClick={handleClick} ship = {ship} />
+      
     </>
   )
 }
