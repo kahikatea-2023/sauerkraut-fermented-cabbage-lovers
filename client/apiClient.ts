@@ -23,7 +23,8 @@ export async function getStarships() {
       id,
     }
   })
-
+  console.log(`Updated Array: `, updatedArr);
+  
   return updatedArr as Ship[]
 }
 

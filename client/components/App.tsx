@@ -6,8 +6,11 @@ const App = () => {
   return (
     <>
       <Header />
+
+      <main>
       <SideBar />
-      <Outlet />
+        <Outlet />
+      </main>
     </>
   )
 }

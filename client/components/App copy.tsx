@@ -48,16 +48,7 @@ const App = () => {
 
   return (
     <>
-      <header>
-        <img className="logo" src="../images/Star_Wars_Logo.png" alt="" />
-        <h1>Starship Emporium</h1>
-        <div className="user-info">
-          <img className="user-image" src="../images/admiral.webp" alt="" />
-          <p>
-            Steve’s Account <span>&#62;</span>
-          </p>
-        </div>
-      </header>
+      
       <main>
         <div className="sidebar">
           <h2>Ship by category</h2>
