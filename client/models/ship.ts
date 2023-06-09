@@ -1,8 +1,5 @@
-export interface Welcome {
-  statement: string
-}
-
 export interface ShipData {
+  id: number
   name: string
   model: string
   manufacturer: string
