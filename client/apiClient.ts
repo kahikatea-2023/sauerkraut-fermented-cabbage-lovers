@@ -19,7 +19,8 @@ export async function getStarships() {
     const id = index
     return {
       ...ship,
-      ...shipImages.find((shipImg) => shipImg.name === ship.name), id
+      imgSrc: `images/${ship.name}.webp`,
+      id,
     }
   })
 
