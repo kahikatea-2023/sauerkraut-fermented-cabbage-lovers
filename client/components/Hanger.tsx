@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
-import { getSpaceShips } from '../apiClient'
+import { fetchStarships, getStarships } from '../apiClient'
+import { Ship, ShipData } from '../models/ship'
+import { useEffect, useState } from 'react'
 
 const initialShipArr = [
   {
@@ -50,16 +52,33 @@ const initialShipArr = [
 ]
 //This will contain all space ships on the page.
 function Hanger() {
-  // const spaceShipsData = await getSpaceShips()
+  const [spaceships, setSpaceships] = useState(initialShipArr as Ship[])
+
+  console.log(spaceships)
+
+  useEffect(() => {
+    console.log('hello')
+
+    getStarships()
+      .then((fetchedSpaceshipData) => {
+        console.log(fetchedSpaceshipData)
+        setSpaceships(fetchedSpaceshipData)
+      })
+      .catch((err) => console.error(err))
+  }, [])
+  // const spaceShipsData = await getStarships()
+  // console.log(spaceShipsData)
+
   return (
     <>
       <div>
-        {initialShipArr.map((spaceShip) => (
+        {spaceships.map((spaceShip) => (
           <ul key={spaceShip.name}>
             <li>Spaceship: {spaceShip.name}</li>
             <a href={spaceShip.imgSrc}>
               <img src={spaceShip.imgSrc} alt="img"></img>
             </a>
+            <li>Price: ${spaceShip.cost_in_credits}</li>
             <Link to={`/ships/</ul>${spaceShip.name}`}>
               <button>VIEW SHIP</button>
             </Link>
