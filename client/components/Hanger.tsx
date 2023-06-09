@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 
 const initialShipArr = [
   {
+    id: 0,
     name: 'Space Ship',
     model: 'HardCoded data',
     manufacturer: 'f',
@@ -27,6 +28,7 @@ const initialShipArr = [
       'https://www.denofgeek.com/wp-content/uploads/2019/12/x-wing.jpg?w=1024',
   },
   {
+    id: 1,
     name: 'Tesla',
     model: 'HardCoded data',
     manufacturer: 'f',
@@ -74,7 +76,7 @@ function Hanger() {
               <img src={spaceShip.imgSrc} alt="img"></img>
             </a>
             <li>Price: ${spaceShip.cost_in_credits}</li>
-            <Link to={`/ships/${spaceShip.id}`}>
+            <Link to={`/shipdetails/${spaceShip.id}`}>
               <button>VIEW SHIP</button>
             </Link>
           </ul>

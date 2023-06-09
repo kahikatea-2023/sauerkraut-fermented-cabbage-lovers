@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getStarships } from '../apiClient'
+import { getShipById } from '../apiClient'
 import { Ship } from '../models/ship'
 
 const initShip = [
@@ -29,24 +29,36 @@ const initShip = [
   },
 ]
 function ShipDetails() {
-  const { shipID } = useParams()
-  
-  useEffect (() => {
-    const foundShip = initShip.find((ship) => ship.id.to)
-  })
+  const { id } = useParams()
+  const [ship, setShip] = useState<Ship>(initShip as any) //hacky fix please research
 
+  useEffect(() => {
+    getShipById(Number(id))
+      .then((foundShip) => {
+        setShip(foundShip)
+      })
+      .catch((err) => {
+        console.error(err.message)
+      })
+  }, [])
+  
+  
   return (
-    <div>
-      <h2>{}</h2>
-      <p>{ship.model}</p>
-      <p>{ship.manufacturer}</p>
-      <p>{ship.cost_in_credits}</p>
-      <p>{ship.length}</p>
-      <p>{ship.max_atmosphering_speed}</p>
-      <p>{ship.crew}</p>
-      <p>{ship.passengers}</p>
-    </div>
+    <>
+      <div>
+        <h2>{ship.name}</h2>
+        <img src={`../${ship.imgSrc}`} alt="imglol" />
+        <p>{ship.model}</p>
+    <p>{ship.manufacturer}</p>
+    <p>{ship.cost_in_credits}</p>
+    <p>{ship.length}</p>
+    <p>{ship.max_atmosphering_speed}</p>
+    <p>{ship.crew}</p>
+    <p>{ship.passengers}</p>
+      </div>
+      <p>hello</p>
+    </>
   )
 }
 
-export default Ships
+export default ShipDetails

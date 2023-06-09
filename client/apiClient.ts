@@ -10,7 +10,6 @@ export async function fetchStarships() {
   const starships = data.body.results
   // console.log(starships)
 
-  
   return starships as ShipData[]
 }
 
@@ -20,7 +19,8 @@ export async function getStarships() {
     const id = index
     return {
       ...ship,
-      ...shipImages.find((shipImg) => shipImg.name === ship.name), id
+      imgSrc: `images/${ship.name}.webp`,
+      id,
     }
   })
 
